@@ -1,0 +1,45 @@
+.documents-upload {
+    display: grid;
+    gap: 14px;
+    padding: 18px;
+    border: 1px solid #e8eef6;
+    border-radius: 8px;
+    background: #F5F7FA;
+}
+
+.documents-upload__head {
+    display: grid;
+    gap: 2px;
+}
+
+.documents-upload__head strong {
+    color: var(--blue);
+    font-weight: 900;
+}
+
+.documents-upload__head span,
+.documents-upload small,
+.documents-upload p {
+    color: #66788f;
+    font-size: .86rem;
+}
+
+.documents-upload label {
+    display: grid;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid #e2eaf5;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.documents-upload label span {
+    display: grid;
+    gap: 2px;
+    font-weight: 800;
+    color: var(--ink);
+}
+
+.documents-upload p {
+    margin: 0;
+}

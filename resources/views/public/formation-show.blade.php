@@ -1,0 +1,6 @@
+@extends('layouts.public')
+@section('content')
+@include('public.partials')
+@php epimHero($formation->title, $formation->description, $formation->image); @endphp
+<section class="section"><div class="container formation-layout"><article><div class="meta-row"><span>{{ $formation->duration }}</span><span>{{ $formation->level_required }}</span><span>{{ $formation->insertion_rate }}% insertion</span></div><h2>Objectifs</h2><ul class="check-list">@foreach($formation->objectives as $item)<li>{{ $item }}</li>@endforeach</ul><h2>Programme détaillé</h2><div class="timeline">@foreach($formation->program as $item)<div>{{ $item }}</div>@endforeach</div><h2>Compétences acquises</h2><ul class="check-list">@foreach($formation->skills as $item)<li>{{ $item }}</li>@endforeach</ul><h2>Débouchés</h2><ul class="check-list">@foreach($formation->opportunities as $item)<li>{{ $item }}</li>@endforeach</ul></article><aside class="apply-card"><h3>Inscription rapide</h3><form method="post" action="{{ route('apply') }}" enctype="multipart/form-data">@csrf<input type="hidden" name="formation_id" value="{{ $formation->id }}">@include('public.form-fields')<button class="btn btn-gold w-100">{{ __('site.actions.send_request') }}</button></form></aside></div></section>
+@endsection

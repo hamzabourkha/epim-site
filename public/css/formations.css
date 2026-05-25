@@ -1,0 +1,119 @@
+.formation-family-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.formation-family-card {
+    display: block;
+    min-height: 230px;
+    padding: 24px;
+    border: 1px solid #e8eef6;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--text);
+    text-decoration: none;
+    box-shadow: 0 18px 44px rgba(16, 36, 63, .08);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.formation-family-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 64px rgba(16, 36, 63, .14);
+}
+
+.formation-family-card i {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    background: rgba(0, 75, 156, .1);
+    color: var(--blue);
+    font-size: 1.5rem;
+}
+
+.formation-family-card span {
+    color: var(--gold);
+    font-weight: 900;
+    font-size: .78rem;
+    text-transform: uppercase;
+}
+
+.formation-family-card h2 {
+    margin: 8px 0;
+    font-size: 1.28rem;
+    color: var(--ink);
+}
+
+.formation-family-card p {
+    margin: 0;
+}
+
+.formation-category-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 28px;
+    margin-bottom: 28px;
+}
+
+.formation-category-head > div:first-child {
+    max-width: 760px;
+}
+
+.state-accredited {
+    display: grid;
+    justify-items: center;
+    min-width: 220px;
+    padding: 20px;
+    border: 1px solid #e8eef6;
+    border-radius: 8px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 18px 44px rgba(16, 36, 63, .08);
+}
+
+.state-accredited img {
+    width: 92px;
+    height: 92px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.state-accredited strong,
+.state-accredited span {
+    display: block;
+}
+
+.state-accredited strong {
+    color: var(--blue);
+    font-weight: 900;
+}
+
+.state-accredited span {
+    color: var(--gold);
+    font-weight: 900;
+}
+
+@media (max-width: 991px) {
+    .formation-family-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .formation-category-head {
+        align-items: start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 575px) {
+    .formation-family-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .formation-family-card {
+        min-height: auto;
+    }
+}

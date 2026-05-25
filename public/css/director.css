@@ -1,0 +1,136 @@
+.director-card {
+    position: relative;
+    overflow: hidden;
+    padding: 34px;
+    border: 1px solid rgba(0, 75, 156, .14);
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(0, 75, 156, .96), rgba(7, 29, 54, .96)),
+        #004B9C;
+    color: #fff;
+    box-shadow: 0 24px 70px rgba(16, 36, 63, .18);
+}
+
+.director-card::before {
+    content: "";
+    position: absolute;
+    top: -90px;
+    right: -90px;
+    width: 220px;
+    height: 220px;
+    border: 30px solid rgba(243, 156, 18, .16);
+    border-radius: 50%;
+}
+
+.director-card__top,
+.director-card__signature {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.director-card__avatar {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    flex: 0 0 auto;
+    border-radius: 8px;
+    background: #F39C12;
+    color: #071d36;
+    font-family: Poppins, Inter, sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.director-card h3 {
+    margin: 6px 0 0;
+    color: #fff;
+    font-size: 1.55rem;
+    line-height: 1.25;
+    font-weight: 800;
+}
+
+.director-card p {
+    position: relative;
+    color: rgba(255, 255, 255, .88);
+    line-height: 1.8;
+}
+
+.director-card__lead {
+    margin-top: 24px;
+    font-size: 1.05rem;
+}
+
+.director-card__commitments {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    margin: 22px 0;
+}
+
+.director-card__commitments span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .08);
+    font-weight: 800;
+}
+
+.director-card__commitments i {
+    color: #F39C12;
+}
+
+.director-card__signature {
+    justify-content: space-between;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, .18);
+}
+
+.director-card__signature strong,
+.director-card__signature small {
+    display: block;
+}
+
+.director-card__signature small {
+    margin-top: 4px;
+    color: rgba(255, 255, 255, .76);
+}
+
+.director-card__signature img {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    padding: 4px;
+}
+
+@media (max-width: 575px) {
+    .director-card {
+        padding: 24px;
+    }
+
+    .director-card__top {
+        align-items: flex-start;
+    }
+
+    .director-card__avatar {
+        width: 52px;
+        height: 52px;
+        font-size: 1.6rem;
+    }
+
+    .director-card__signature {
+        align-items: flex-start;
+    }
+
+    .director-card__signature img {
+        width: 56px;
+        height: 56px;
+    }
+}
