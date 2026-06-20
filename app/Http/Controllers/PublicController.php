@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class PublicController extends Controller
 {
@@ -159,7 +160,7 @@ class PublicController extends Controller
     public function storeQuickPreapply(Request $request)
     {
         $validated = $request->validate([
-            'formation_id' => ['nullable', 'exists:formations,id'],
+            'formation_id' => ['nullable', Rule::exists('formations', 'id')->where('category', 'Formations diplomantes')],
             'first_name' => ['required', 'string', 'max:120'],
             'last_name' => ['required', 'string', 'max:120'],
             'phone' => ['required', 'string', 'max:40'],

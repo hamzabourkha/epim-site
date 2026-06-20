@@ -53,7 +53,7 @@
         <aside class="apply-card preapply-card">
             <h3>{{ __('site.preapply.form_title') }}</h3>
             <p>{{ __('site.preapply.form_subtitle') }}</p>
-            <form method="post" action="{{ route('preapply.store') }}">
+            <form method="post" action="{{ route('preapply.store') }}" id="quickPreapplyForm">
                 @csrf
                 <div class="row g-3">
                     <div class="col-md-6">
@@ -80,12 +80,20 @@
                         <label class="form-label">{{ __('site.preapply.fields.level') }}</label>
                         <input class="form-control" name="education_level" value="{{ old('education_level') }}">
                     </div>
+                    @php
+                        $diplomaLabels = [
+                            'developpement-digital' => 'Technicien spécialisé en développement digital',
+                            'developpement-informatique' => 'Technicien spécialisé en développement informatique',
+                            'infographie' => 'Technicien en infographie',
+                            'gestion-des-entreprises' => 'Technicien spécialisé en gestion des entreprises',
+                        ];
+                    @endphp
                     <div class="col-12">
                         <label class="form-label">{{ __('site.preapply.fields.formation') }}</label>
                         <select class="form-select" name="formation_id">
                             <option value="">{{ __('site.preapply.fields.formation_placeholder') }}</option>
                             @foreach($formations as $formation)
-                                <option value="{{ $formation->id }}" @selected(old('formation_id') == $formation->id)>{{ $formation->title }}</option>
+                                <option value="{{ $formation->id }}" @selected(old('formation_id') == $formation->id)>{{ $diplomaLabels[$formation->slug] ?? $formation->title }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -108,4 +116,51 @@
         </article>
     </div>
 </section>
+
+<script>
+    function gtag_report_conversion(url) {
+        var callback = function () {
+            if (typeof(url) !== 'undefined') {
+                window.location = url;
+            }
+        };
+
+        if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-339581645/RjOSCJ6i2ZwbEM219qEB',
+                'event_callback': callback
+            });
+        }
+
+        return false;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('quickPreapplyForm');
+        if (!form) {
+            return;
+        }
+
+        form.addEventListener('submit', function (event) {
+            if (form.dataset.conversionSubmitted === '1' || typeof gtag !== 'function') {
+                return;
+            }
+
+            event.preventDefault();
+            form.dataset.conversionSubmitted = '1';
+
+            var fallback = window.setTimeout(function () {
+                form.submit();
+            }, 900);
+
+            gtag('event', 'conversion', {
+                'send_to': 'AW-339581645/RjOSCJ6i2ZwbEM219qEB',
+                'event_callback': function () {
+                    window.clearTimeout(fallback);
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
 @endsection
