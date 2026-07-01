@@ -22,5 +22,7 @@ yarn-error.log
 /.vscode
 /.zed
 /deploy
+/_servver_compare
+/_server_compare
 /epim_laravel_tmp
 /database/database.sqlite

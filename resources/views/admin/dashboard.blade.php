@@ -10,7 +10,7 @@
 <div class="row g-4 mt-1">
     <div class="col-lg-7">
         <div class="admin-panel">
-            <div class="admin-panel-head"><h2>Inscriptions récentes</h2><a href="{{ route('admin.resource','inscriptions') }}">Voir tout</a></div>
+            <div class="admin-panel-head"><h2>Inscriptions récentes</h2><a href="{{ route('admin.applications.index') }}">Voir tout</a></div>
             <table class="table">
                 <thead><tr><th>Dossier</th><th>Candidat</th><th>Filiere</th><th>Statut</th></tr></thead>
                 <tbody>

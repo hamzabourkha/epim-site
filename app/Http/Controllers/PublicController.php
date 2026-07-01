@@ -144,6 +144,9 @@ class PublicController extends Controller
 
         $validated['documents'] = $files;
         $validated['dossier_number'] = 'EPIM-' . now()->format('Ymd') . '-' . strtoupper(Str::random(5));
+        $validated['source'] = 'formulaire_complet';
+        $validated['priority'] = 'normale';
+
         Application::create($validated);
 
         return back()->with('success', 'Votre dossier a été enregistré sous le numéro ' . $validated['dossier_number']);
@@ -174,6 +177,8 @@ class PublicController extends Controller
 
         $validated['email'] = $validated['email'] ?: 'preinscription-' . Str::lower(Str::random(8)) . '@epim.local';
         $validated['status'] = 'preinscription_rapide';
+        $validated['source'] = 'preinscription_rapide';
+        $validated['priority'] = 'haute';
         $validated['documents'] = [];
         $validated['dossier_number'] = 'PR-' . now()->format('Ymd') . '-' . strtoupper(Str::random(5));
 
